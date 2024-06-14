@@ -1,0 +1,160 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #579BEB;
+}
+
+li {
+    float: left;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+li a:not(.active) {
+    text-transform: uppercase;
+}
+
+.active {
+    background-color: #51D3E0;
+    color: #00A0FA;
+}
+
+.active:hover {
+    background-color: #00E8EA;
+    color: white;
+}
+
+/* Cards */
+.student-target {
+    padding: 2%;
+}
+
+.card {
+    display: flex;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+/* Fin cards */
+
+.add {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-add {
+    display: block;
+    text-align: center;
+    margin: 1%;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #6FADCC;
+    border-radius: 5px;
+}
+
+.btn-add:hover {
+    background-color: #7591EB;
+}
+
+.btn-group {
+    display: flex;
+    width: 100%;
+}
+
+.btn-group .col-6 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-group .button {
+    width: 100%;
+    padding: 15px 0;
+    font-size: 16px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-group .edit-button {
+    background-color: #48F5F1;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.btn-group .edit-button:hover,
+.btn-group .btn-update:hover,
+.btn-group .btn-save:hover {
+    background-color: #00E8EA;
+}
+
+.btn-group .btn-update,
+.btn-group .btn-save {
+    background-color: #48F5F1;
+    border-radius: 0 5px 5px 0;
+}
+
+.btn-group .delete-button {
+    background-color: #F49482;
+    border-radius: 0 5px 5px 0;
+}
+
+.btn-group .delete-button:hover,
+.btn-group .btn-close-edit:hover {
+    background-color: #F57662;
+}
+
+.btn-group .btn-close-edit {
+    background-color: #F49482;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #A5DFF5;
+    color: #7591EB;
+    padding: 10px 0;
+}
+
+.modal-header {
+    background-color: #37A2F5;
+}
+
+.modal-title {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #ffffff;
+}

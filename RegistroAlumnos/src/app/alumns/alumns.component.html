@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudiantes</title>
+</head>
+
+<body>
+  <div class="header">
+    <ul>
+      <li>
+        <a href="">Registro de estudiantes</a>
+      </li>
+      <li style="float:right">
+        <a class="active" (click)="logout()" href="">Cerrar sesión</a>
+      </li>
+    </ul>
+  </div>
+  <div class="main">
+    <div class="row">
+      <div class="add">
+        <button class="btn-add" (click)="openModel1()">Agregar estudiante</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="student-target">
+        @if (studentList.length !== 0) {
+        <div class="row">
+          @for(item of studentList; track $index){
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <div class="card-header">
+                <div class="row">
+                  <div class="col">
+                    {{item.id}}
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-5">Nombre: </div>
+                  <div class="col">
+                    <p>{{item.name}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-5">Movil N°: </div>
+                  <div class="col">
+                    <p>{{item.movileNo}}</p>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-5">Dirección: </div>
+                  <div class="col">
+                    <p>{{item.city}}, {{item.state}}, {{item.pincode}}</p>
+                    <p>{{item.address}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-5">E-mail: </div>
+                  <div class="col">
+                    <p>{{item.email}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="btn-group">
+                  <div class="col-6"><button (click)="onEdit(item)" class="button edit-button">Editar</button></div>
+                  <div class="col-6"><button (click)="onDelete(item)" class="button delete-button">Eliminar</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+        }
+        @else {
+        <div class="row">
+          <div class="col-12 p-4 text-center">
+            <p>No hay registro de estudiantes. Por favor, agregar registros.</p>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    &copy; 2024
+  </div>
+  
+  <!-- The Modal -->
+  <div class="modal" id="myModal" #myModal>
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          @if (studentObj.id == 0) {
+            <div class="modal-title">Agregar estudiante</div>
+            }
+            @else {
+              <div class="modal-title">Modificar estudiante</div>
+            }
+          <button type="button" class="btn-close" (click)="closeModel()"></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+
+          <div class="row">
+            <div class="col-8">
+              <label for="">Nombres</label>
+              <input type="text" [(ngModel)]="studentObj.name" class="form-control" placeholder="Name">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <label for="">Número de teléfono</label>
+              <input type="text" [(ngModel)]="studentObj.movileNo" class="form-control" placeholder="Mobile">
+            </div>
+            <div class="col-6">
+              <label for="">E-mail</label>
+              <input type="email" [(ngModel)]="studentObj.email" class="form-control" placeholder="Email">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <label for="">Ciudad</label>
+              <input type="text" [(ngModel)]="studentObj.city" class="form-control" placeholder="City">
+            </div>
+            <div class="col-4">
+              <label for="">País</label>
+              <input type="text" [(ngModel)]="studentObj.state" class="form-control" placeholder="State">
+            </div>
+            <div class="col-4">
+              <label for="">Postal</label>
+              <input type="text" [(ngModel)]="studentObj.pincode" class="form-control" placeholder="Pin code">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <label for="">Dirección</label>
+              <textarea rows="3" [(ngModel)]="studentObj.address" class="form-control"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <div class="btn-group">
+            <button type="button" class="button btn-close-edit" (click)="closeModel()">Cerrar</button>
+            @if (studentObj.id == 0) {
+            <button type="button" class="button btn-save" (click)="saveStudent();closeModel()">Guardar</button>
+            }
+            @else {
+            <button type="button" class="button btn-update" (click)="updateStud();closeModel()">Actualizar</button>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
